@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   thread_routin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 10:23:47 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 12:57:28 by zessadqu         ###   ########.fr       */
+/*   Created: 2022/10/21 12:34:30 by zessadqu          #+#    #+#             */
+/*   Updated: 2022/10/21 12:44:25 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int argc, char **argv)
+void *routine(void *args)
 {
-    t_philo philo;
-    t_info w7ed;
-    int     i;
-    
-    if (1)
-    {
-        philo = init_data(argv);
-    }
-    else if (argc == 1)
-    {
-        printf("Usage : ./philo ");
-        printf("number_of_philosophers time_to_die time_to_eat ");
-        printf("time_to_sleep");
-        printf(" [number_of_times_each_philosopher_must_eat]");
-    }
-    else
-         printf("wrong input");
+    return ;   
+}
+
+void *check_death(void *args)
+{
+    return ;
 }
