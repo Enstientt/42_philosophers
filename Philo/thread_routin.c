@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:34:30 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 20:10:09 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:03:55 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void *routine(void *args)
     t_sitters	*list;
 
 	list = (t_sitters *)args;
-	list->tiem_start = current_time();
-	list->last_meal = list->tiem_start;
+	list->time_start = current_time();
+	list->last_meal = list->time_start;
 	if (list->philo_id % 2 == 0)
 		ft_usleep(list->philo->info.time_to_eat);
 	while (list->philo->stat == alive)
@@ -27,14 +27,16 @@ void *routine(void *args)
 		if (list->philo->info.philo_num == 1)
 		{
 			pthread_mutex_lock(&list->fork);
+			pthread_mutex_lock(&list->philo->say_mutex);
 			printf("MESSAGE HERE");
+			pthread_mutex_unlock(&list->philo->say_mutex);
 			ft_usleep(list->philo->info.time_to_die);
 		}
-        //fork lock
-        // eating
-        // unlock the fork
-        //sleeping
-        // thinking
+        lock_fork(list);
+        eating(list);
+        unlock_fork(list);
+        sleeping(list);
+        thinking(list);
 		ft_usleep(list->philo->info.time_to_eat);
 	}
 	return (NULL);   
@@ -42,5 +44,5 @@ void *routine(void *args)
 
 void *check_death(void *args)
 {
-    return ;
+    return(NULL);
 }

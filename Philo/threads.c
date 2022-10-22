@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:03:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 18:50:51 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:11:02 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ static void init_mutexs(t_philo *philo)
     pthread_mutex_init(&philo->say_mutex, NULL);
     while (size)
     {
-        pthread_mutex_int(&temp->eat, NULL);
-        pthread_mutex_int(&temp->fork, NULL);
+        pthread_mutex_init(&temp->eat, NULL);
+        pthread_mutex_init(&temp->fork, NULL);
         temp = temp->next; 
+        size--;
     }
 }
 
-static  int create_threads(t_philo *philo)
+static  int init_threads(t_philo *philo)
 {
     t_sitters *tmp;
     int index;
@@ -63,7 +64,7 @@ static  int create_threads(t_philo *philo)
         index--;
         tmp = tmp->next;  
     }
-    test = pthread_create(philo->death, NULL, &check_death, (void *)philo);
+    test = pthread_create(&philo->death, NULL, &check_death, (void *)philo);
     if (test)
         return (0);
     return (1);

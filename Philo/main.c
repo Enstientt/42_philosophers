@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:23:47 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 12:57:28 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:13:11 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int main(int argc, char **argv)
 {
     t_philo philo;
-    t_info w7ed;
     int     i;
     
     if (1)
     {
         philo = init_data(argv);
+        init_0(&philo);
     }
     else if (argc == 1)
     {

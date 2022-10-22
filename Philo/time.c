@@ -6,12 +6,18 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:55:57 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 19:57:25 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 12:08:35 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int current_time();
+int current_time()
+{
+    return (1);
+}
 
-void    ft_usleep(int usec);
+void    ft_usleep(int usec)
+{
+    return;
+}
