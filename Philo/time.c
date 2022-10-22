@@ -6,18 +6,24 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:55:57 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/22 12:08:35 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:38:10 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int current_time()
+size_t current_time()
 {
-    return (1);
+    struct timeval  current_time;
+    gettimeofday(&current_time, NULL);
+    return (current_time.tv_sec * 1000 + current_time.tv_usec/1000);
 }
 
-void    ft_usleep(int usec)
+void    ft_usleep(size_t usec)
 {
-    return;
+    size_t	start_time;
+    
+    start_time = current_time();
+    usleep((usec - 10) * 1000);
+    while ((current_time() - usec) < start_time);
 }

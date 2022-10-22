@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:31:08 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/22 12:10:27 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 18:30:25 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ typedef enum statue{
 
 typedef struct s_info{
     int philo_num;
-    int time_to_die;
-    int time_to_eat;
-    int time_to_sleep;
+    size_t time_to_die;
+    size_t time_to_eat;
+    size_t time_to_sleep;
     int number_of_times_each_philosopher_must_eat;
 }   t_info;
 
 typedef struct s_sitters{
     int philo_id;
-    int last_meal;
-    int time_start;
+    size_t last_meal;
+    size_t time_start;
     pthread_t thread;
     pthread_mutex_t fork;
     pthread_mutex_t eat;
@@ -67,8 +67,8 @@ void *check_death(void *args);
 t_philo init_data(char **argv);
 t_sitters *init_table(t_philo *philo);
 t_sitters    *new_philo(t_philo *philo, int id);
-int current_time();
-void    ft_usleep(int usec);
+size_t  current_time();
+void    ft_usleep(size_t usec);
 
 
 #endif
