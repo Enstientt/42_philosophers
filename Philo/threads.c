@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:03:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/22 12:11:02 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:50:20 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static  int init_threads(t_philo *philo)
         index--;
         tmp = tmp->next;  
     }
-    test = pthread_create(&philo->death, NULL, &check_death, (void *)philo);
+    test = pthread_create(&philo->death, NULL, &check_death, (void *)philo->table);
     if (test)
         return (0);
     return (1);

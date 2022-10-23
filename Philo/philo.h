@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:31:08 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/22 18:30:25 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:38:34 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_info{
 
 typedef struct s_sitters{
     int philo_id;
+    int times_eating;
     size_t last_meal;
     size_t time_start;
     pthread_t thread;
