@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:34:30 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/24 13:59:26 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:54:13 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	check_meals(t_sitters *list);
 
 void	unlock_all(t_sitters *list);
 
+static void	special_case(t_sitters *list);
+
 void *routine(void *args)
 {
     t_sitters	*list;
@@ -23,24 +25,22 @@ void *routine(void *args)
 	list = (t_sitters *)args;
 	list->time_start = current_time();
 	list->last_meal = list->time_start;
-	if (list->philo_id % 2 == 0)
-		ft_usleep(list->philo->info.time_to_eat);
 	while (list->philo->stat == 1)
 	{
 		if (list->philo->info.philo_num == 1)
 		{
 			pthread_mutex_lock(&list->fork);
-			pthread_mutex_lock(&list->philo->say_mutex);
+			//pthread_mutex_lock(&list->philo->say_mutex);
 			printf(" %zu\t%d\thas taken a fork\n",
 					current_time() - list->time_start,
 					list->philo_id);
-			pthread_mutex_unlock(&list->philo->say_mutex);
+			//pthread_mutex_unlock(&list->philo->say_mutex);
 		}
-        lock_fork(list);
-        eating(list);
-        unlock_fork(list);
-        sleeping(list);
-        thinking(list);
+		lock_fork(list);
+		eating(list);
+		unlock_fork(list);
+		sleeping(list);
+		thinking(list);
 	}
 	return (NULL);   
 }
@@ -58,7 +58,9 @@ void *check_death(void *args)
 		if (current_time() - list->last_meal >= list->philo->info.time_to_die)
 		{
 			list->philo->stat = 0;
-			printf("%zu\t%d\tdied\n", current_time() - list->time_start, list->philo_id);
+			printf("%zu\t%d\tdied\n",
+					current_time() - list->time_start,
+					list->philo_id);
 			break;
 		}
 		pthread_mutex_unlock(&list->philo->say_mutex);
