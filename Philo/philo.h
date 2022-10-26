@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:31:08 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/22 20:38:34 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:35:18 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 #include <sys/time.h>
 
 typedef enum statue{
-    alive,
-    died
+    died,
+    alive
 }   e_statue;
 
 typedef struct s_info{
@@ -30,7 +30,7 @@ typedef struct s_info{
     size_t time_to_die;
     size_t time_to_eat;
     size_t time_to_sleep;
-    int number_of_times_each_philosopher_must_eat;
+    int opt;
 }   t_info;
 
 typedef struct s_sitters{
@@ -56,7 +56,7 @@ typedef struct s_philo{
 }   t_philo;
 
 int     ft_atoi(const char *str);
-void    init_0(t_philo *philo);
+int    init_0(t_philo *philo);
 void    add_p_totable(t_sitters *list, t_sitters *new);
 void    lock_fork(t_sitters *list);
 void    eating(t_sitters *list);

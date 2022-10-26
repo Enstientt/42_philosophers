@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 19:55:57 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/23 15:15:31 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:47:37 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 size_t current_time()
 {
     struct timeval  current_time;
+    
     gettimeofday(&current_time, NULL);
-    return (current_time.tv_sec * 1000 + current_time.tv_usec/1000);
+    return (current_time.tv_sec * 1000 + (current_time.tv_usec / 1000));
 }
 
 void    ft_usleep(size_t usec)

@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:54:45 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/21 18:48:49 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:22:28 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_sitters    *new_philo(t_philo *philo, int id)
     new = malloc(sizeof(t_sitters));
     if(!new)
         return (NULL);
-    new->last_meal = 0;
+    new->times_eating = 0;
     new->philo_id = id;
     new->philo = philo;
     new->table_size = philo->info.philo_num;
@@ -46,15 +46,13 @@ void    add_p_totable(t_sitters *list, t_sitters *new)
 t_sitters *init_table(t_philo *philo)
 {
     t_sitters   *list;
-    t_sitters   *temp;
     int index;
     
     index = 1;
     list = new_philo(philo, philo->info.philo_num);
     while (index < philo->info.philo_num)
     {
-        temp = new_philo(philo, index);
-        add_p_totable(list, temp);
+        add_p_totable(list, new_philo(philo, index));
         index++;     
     }
     return (list);
