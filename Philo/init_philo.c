@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:30:41 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/25 11:16:36 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:26:00 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_philo    init_data(char **argv)
     philo.info.time_to_eat = ft_atoi(argv[3]);
     philo.info.time_to_sleep = ft_atoi(argv[4]);
     philo.stat = 1;
-    //printf("%d\t%d\t%d\t%d\t",philo.info.philo_num,philo.info.time_to_die, philo.info.time_to_eat,philo.info.time_to_sleep);
     if(argv[5])
         philo.info.opt = ft_atoi(argv[5]);
     else
