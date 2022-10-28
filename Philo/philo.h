@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:31:08 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/26 17:35:18 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:32:20 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_sitters *init_table(t_philo *philo);
 t_sitters    *new_philo(t_philo *philo, int id);
 size_t  current_time();
 void    ft_usleep(size_t usec);
-
+int	args(char **argv);
+int	ft_isdigit(int c);
 
 #endif

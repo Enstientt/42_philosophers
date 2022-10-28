@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:03:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:59:33 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 16:08:00 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int    init_0(t_philo *philo)
     philo->table = init_table(philo);
     init_mutexs(philo);
     if (init_threads(philo)
-        || join_threads(philo)
-        || detach_threads(philo))
+        || join_threads(philo))
         return (1);
     return (0);
 }

@@ -6,11 +6,41 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:27:09 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/17 10:28:16 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:01:56 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+
+int	args(char **argv)
+{
+	int i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while(argv[i])
+	{
+		j = 0;
+		while(argv[i][j])
+		{
+			if (!ft_isdigit(argv[i][j]))
+			{
+				printf("all the parameters suppose to be numbers\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -38,4 +68,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * nbr);
 }
-
