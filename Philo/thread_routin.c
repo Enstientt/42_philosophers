@@ -6,19 +6,19 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:34:30 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/28 18:13:01 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:05:37 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_meals(t_sitters *list);
+int		check_meals(t_sitters *list);
 
 void	unlock_all(t_sitters *list);
 
-void *routine(void *args)
+void	*routine(void *args)
 {
-    t_sitters	*list;
+	t_sitters	*list;
 
 	list = (t_sitters *)args;
 	list->time_start = current_time();
@@ -31,9 +31,8 @@ void *routine(void *args)
 		{
 			pthread_mutex_lock(&list->fork);
 			pthread_mutex_lock(&list->philo->say_mutex);
-			printf(" %zu\t%d\thas taken a fork\n",
-					current_time() - list->time_start,
-					list->philo_id);
+			printf("%zu\t%d\thas taken a fork\n",
+				current_time() - list->time_start, list->philo_id);
 			pthread_mutex_unlock(&list->philo->say_mutex);
 		}
 		else
@@ -43,12 +42,12 @@ void *routine(void *args)
 		sleeping(list);
 		thinking(list);
 	}
-	return (NULL);   
+	return (NULL);
 }
 
-void *check_death(void *args)
+void	*check_death(void *args)
 {
-	t_sitters *list;
+	t_sitters	*list;
 
 	list = (t_sitters *)args;
 	ft_usleep(10);
@@ -57,14 +56,14 @@ void *check_death(void *args)
 		pthread_mutex_lock(&list->eat);
 		pthread_mutex_lock(&list->philo->say_mutex);
 		if (check_meals(list))
-			break;
+			break ;
 		if ((current_time() - list->last_meal) >= list->philo->info.time_to_die)
 		{
 			list->philo->stat = 0;
 			printf("%zu\t%d\tdied\n",
-					current_time() - list->time_start,
-					list->philo_id);
-			break;
+				current_time() - list->time_start,
+				list->philo_id);
+			break ;
 		}
 		pthread_mutex_unlock(&list->eat);
 		pthread_mutex_unlock(&list->philo->say_mutex);
@@ -76,15 +75,15 @@ void *check_death(void *args)
 
 void	unlock_all(t_sitters *list)
 {
-	t_sitters *temp;
-	int	index;
-	
+	t_sitters	*temp;
+	int			index;
+
 	temp = list;
 	index = list->table_size;
 	list->philo->stat = 0;
 	pthread_mutex_unlock(&list->philo->say_mutex);
 	pthread_mutex_destroy(&list->philo->say_mutex);
-	while (index > 0 )
+	while (index > 0)
 	{
 		pthread_mutex_unlock(&temp->eat);
 		pthread_mutex_destroy(&temp->eat);
@@ -98,13 +97,13 @@ void	unlock_all(t_sitters *list)
 int	check_meals(t_sitters *list)
 {
 	t_sitters	*temp;
-	int	index;
-	int checker;
-	
+	int			index;
+	int			checker;
+
 	checker = 1;
 	temp = list;
 	index = list->table_size;
-	while(index > 0)
+	while (index > 0)
 	{
 		if (temp->philo->info.opt == 0
 			|| temp->times_eating < temp->philo->info.opt)

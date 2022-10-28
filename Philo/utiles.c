@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:27:09 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/28 18:04:14 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:18:13 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int	ft_isdigit(int c)
 
 int	args(char **argv)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 1;
 	j = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]))
 			{
