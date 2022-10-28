@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:27:09 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/28 18:01:56 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:04:14 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-
 
 int	args(char **argv)
 {

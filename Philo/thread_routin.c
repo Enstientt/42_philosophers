@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:34:30 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/27 00:37:20 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:13:01 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	check_meals(t_sitters *list);
 
 void	unlock_all(t_sitters *list);
-
-static void	special_case(t_sitters *list);
 
 void *routine(void *args)
 {
@@ -54,7 +52,7 @@ void *check_death(void *args)
 
 	list = (t_sitters *)args;
 	ft_usleep(10);
-	while (list->philo->stat == 1)
+	while (list->philo->stat == alive)
 	{
 		pthread_mutex_lock(&list->eat);
 		pthread_mutex_lock(&list->philo->say_mutex);
