@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:23:47 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/10/28 21:19:01 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:15:35 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 			philo = init_data(argv);
 			if (init_0(&philo))
 				printf("threads creation error\n");
+			free_memory(&philo);
 		}
 	}
 	else if (argc == 1)

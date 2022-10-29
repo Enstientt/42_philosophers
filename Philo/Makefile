@@ -13,7 +13,8 @@ SRC		= 	main.c \
 			threads.c \
 			time.c	\
 			utiles.c \
-			actions.c
+			actions.c\
+			free.c
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
